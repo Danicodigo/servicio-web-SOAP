@@ -1,0 +1,88 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ordenadores.com/xml/almacen"
+targetNamespace="http://www.ordenadores.com/xml/almacen" elementFormDefault="qualified">
+ 
+    <xs:element name="OrdenadorDetailsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="OrdenadorDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ordenador" type="tns:Ordenador"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ <xs:element name="OrdenadorFabricanteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="OrdenadorFabricanteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fabricante" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+   
+    <xs:element name="OrdenadorProcesadorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="OrdenadorProcesadorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="procesador" type="tns:Procesador"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="OrdenadoresPorFabricanteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="OrdenadoresPorFabricanteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ordenadoresporfabricante" minOccurs="0" maxOccurs="unbounded" type="tns:Ordenador" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    
+    <xs:complexType name="Ordenador">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="procesador" type="tns:Procesador"/>
+            <xs:element name="ram" type="xs:string"/>
+           
+            <xs:element name="grafica" type="xs:string"/>
+            <xs:element name="fapricante" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+     <xs:complexType name="Procesador">
+        <xs:sequence>
+        <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="nucleos" type="xs:int"/>
+            <xs:element name="hilos" type="xs:int"/>
+            <xs:element name="ghz" type="xs:float"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+     
+</xs:schema>
